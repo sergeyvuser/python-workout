@@ -1,6 +1,32 @@
 import random
 
-WORDS = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", "papaya", "quince", "raspberry", "strawberry", "tomato", "ugli", "violet", "watermelon", "xigua", "yellow", "zucchini"]
+WORDS = [
+    "apple",
+    "banana",
+    "cherry",
+    "date",
+    "elderberry",
+    "fig",
+    "grape",
+    "honeydew",
+    "kiwi",
+    "lemon",
+    "mango",
+    "nectarine",
+    "orange",
+    "papaya",
+    "quince",
+    "raspberry",
+    "strawberry",
+    "tomato",
+    "ugli",
+    "violet",
+    "watermelon",
+    "xigua",
+    "yellow",
+    "zucchini",
+]
+
 
 def is_digit_input(text):
     while True:
@@ -11,9 +37,10 @@ def is_digit_input(text):
             print("Please enter a number!")
             continue
 
+
 def guessing_word():
-    print(f"I'm thinking of a word. Can you guess what it is?")
-    print(f"Let's define how many letters it will have.")
+    print("I'm thinking of a word. Can you guess what it is?")
+    print("Let's define how many letters it will have.")
     min_length = is_digit_input("Minimum length: ")
     while True:
         max_length = is_digit_input("Maximum length: ")

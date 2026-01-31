@@ -1,5 +1,6 @@
 import random
 
+
 def guessing_game():
     answer = random.randint(0, 100)
 
@@ -37,7 +38,8 @@ def modified_guessing_game():
 
         i += 1
     else:
-        print(f"You didn't guess in time, sorry!")
+        print("You didn't guess in time, sorry!")
+
 
 if __name__ == "__main__":
     modified_guessing_game()

@@ -3,8 +3,12 @@ import random
 
 def guessing_base():
     answer = random.randint(0, 100)
-    base = random.choice([2, 8, 10, 16]) # random base between 2 and 16 (binary, octal, decimal, hexadecimal)
-    print(f"I'm thinking of a number between 0 and 100. Can you guess what it is in base {base}?")
+    base = random.choice(
+        [2, 8, 10, 16]
+    )  # random base between 2 and 16 (binary, octal, decimal, hexadecimal)
+    print(
+        f"I'm thinking of a number between 0 and 100. Can you guess what it is in base {base}?"
+    )
 
     while True:
         user_guess = input("Guess the number between 0 and 100: ")
