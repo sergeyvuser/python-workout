@@ -2,13 +2,15 @@
 
 A Python project for practicing and improving Python programming skills.
 
+**Requirements:** Python 3.14+
+
 ## Structure
 
-- `numeric/` - Exercises module
-  - `number_guessing_game.py` - Number guessing game (unlimited or limited attempts)
-  - `number_and_base_guessing_game.py` - Number guessing in a random base (2, 8, 10, 16)
-  - `guessing_word_game.py` - Word guessing with min/max length and dictionary hints
-  - `summing_numbers.py` - Summing functions (`mysum`, `mysum2`)
+- `numeric/` — Exercises module
+  - `number_guessing_game.py` — Number guessing (unlimited or limited attempts)
+  - `number_and_base_guessing_game.py` — Number guessing in base 2, 8, 10, or 16
+  - `guessing_word_game.py` — Word guessing with min/max length and dictionary hints
+  - `summing_numbers.py` — Summing functions (`mysum`, `mysum2`)
 
 ## Setup
 
@@ -20,15 +22,14 @@ uv venv
 source .venv/bin/activate  # Linux/macOS
 .venv\Scripts\activate     # Windows
 
-# Install dependencies (including dev: ruff)
+# Install dependencies (includes dev: ruff, pre-commit)
 uv sync
 ```
 
 ### Pre-commit (optional)
 
 ```bash
-# Install pre-commit hooks (Ruff lint + format)
-pre-commit install
+pre-commit install   # Ruff lint + format on commit
 ```
 
 ## Run
