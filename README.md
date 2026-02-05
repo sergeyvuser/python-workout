@@ -10,7 +10,7 @@ A Python project for practicing and improving Python programming skills.
   - `number_guessing_game.py` — Number guessing (unlimited or limited attempts)
   - `number_and_base_guessing_game.py` — Number guessing in base 2, 8, 10, or 16
   - `guessing_word_game.py` — Word guessing with min/max length and dictionary hints
-  - `summing_numbers.py` — Summing function `mysum(*numbers, start=0)` with optional start
+  - `summing_numbers.py` — `Numbers` and `Words` helpers for numeric and text analysis
 - `tests/` — Unit tests for the numeric exercises
 
 ## Setup

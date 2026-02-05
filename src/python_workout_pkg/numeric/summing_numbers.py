@@ -8,7 +8,7 @@ class Numbers:
         """
         self.numbers = numbers
 
-    def mysum(self, start: int = 0) -> int:
+    def mysum(self, start: int = 10) -> int:
         """
         Summing function with start parameter
 
@@ -47,43 +47,11 @@ class Words:
         self.words = words
 
     def words_analyzer(self) -> tuple[int, int, float]:
-        assert self.words, "No words provided"
+        if not self.words:
+            return 0, 0, 0.0
         word_lengths = [len(word) for word in self.words]
         return (
             min(word_lengths),
             max(word_lengths),
             sum(word_lengths) / len(word_lengths),
         )
-
-
-if __name__ == "__main__":
-    num1 = Numbers(10, 20, 30, 40)
-    num2 = Numbers(*[1, 2, 3, 4, 5])
-    num3 = Numbers(*range(1, 101))
-    num4 = Numbers()
-    num5 = Numbers(0)
-    print(num1.mysum(), num1.mean())
-    print(num1.mysum(10), num1.mean())
-    print(num2.mysum(0), num2.mean())
-    print(num3.mysum(), num3.mean())
-    print(num3.mysum(10), num3.mean())
-    print(num4.mysum(), num4.mean())
-    print(num4.mysum(10), num4.mean())
-    print(num5.mysum(), num4.mean())
-    print(num5.mysum(10), num4.mean())
-
-    words1 = Words("apple", "banana", "cherry", "date", "elderberry")
-    words2 = Words("fig", "grape", "honeydew", "kiwi", "lemon")
-    words3 = Words("mango", "nectarine", "orange", "papaya", "quince")
-    words4 = Words("raspberry", "strawberry", "tomato", "ugli", "violet")
-    words5 = Words("watermelon", "xigua", "yellow", "zucchini")
-    print(words1.words_analyzer())
-    print(words2.words_analyzer())
-    print(words3.words_analyzer())
-    print(words4.words_analyzer())
-    print(words5.words_analyzer())
-
-    words6 = Words()
-    print(words6.words_analyzer())
-    words7 = Words("")
-    print(words7.words_analyzer())
