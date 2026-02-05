@@ -6,11 +6,12 @@ A Python project for practicing and improving Python programming skills.
 
 ## Structure
 
-- `numeric/` — Exercises module
+- `src/python_workout_pkg/numeric/` — Exercises package
   - `number_guessing_game.py` — Number guessing (unlimited or limited attempts)
   - `number_and_base_guessing_game.py` — Number guessing in base 2, 8, 10, or 16
   - `guessing_word_game.py` — Word guessing with min/max length and dictionary hints
   - `summing_numbers.py` — Summing function `mysum(*numbers, start=0)` with optional start
+- `tests/` — Unit tests for the numeric exercises
 
 ## Setup
 
@@ -36,14 +37,20 @@ pre-commit install   # Ruff lint + format on commit
 
 ```bash
 # Number guessing game
-python -m numeric.number_guessing_game
+python -m python_workout_pkg.numeric.number_guessing_game
 
 # Number guessing in random base
-python -m numeric.number_and_base_guessing_game
+python -m python_workout_pkg.numeric.number_and_base_guessing_game
 
 # Word guessing game
-python -m numeric.guessing_word_game
+python -m python_workout_pkg.numeric.guessing_word_game
 
 # Summing numbers examples
-python -m numeric.summing_numbers
+python -m python_workout_pkg.numeric.summing_numbers
+```
+
+## Test
+
+```bash
+uv run pytest
 ```
