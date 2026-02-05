@@ -7,7 +7,7 @@ authors = [
 description = "A Python project for practicing and improving Python programming skills."
 readme = "README.md"
 requires-python = ">=3.14"
-license = "MIT AND (Apache-2.0 OR BSD-2-clause)"
+license = "MIT AND (Apache-2.0)"
 license-files = ["LICEN[CS]E*"]
 dependencies = []
 
@@ -19,17 +19,22 @@ Issues = "https://github.com/sergeyvuser/python-workout/issues"
 requires = ["uv_build>=0.9.29,<0.10.0"]
 build-backend = "uv_build"
 
+[tool.uv.build-backend]
+module-name = "python_workout_pkg"
+
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
     "ruff>=0.14.14",
 ]
 
 [tool.pytest]
 minversion = "9.0"
 addopts = [
-    "-ra",
-    "-q",
+    #"-ra",
+    #"-q",
+    "-vv",
     "--import-mode=importlib",
 ]
 testpaths = [
