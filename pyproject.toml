@@ -1,13 +1,39 @@
 [project]
 name = "python-workout"
 version = "0.1.0"
-description = "Add your description here"
+authors = [
+  { name="Sergey Vorobiev", email="vorobevsy@gmail.com" },
+]
+description = "A Python project for practicing and improving Python programming skills."
 readme = "README.md"
 requires-python = ">=3.14"
+license = "MIT AND (Apache-2.0 OR BSD-2-clause)"
+license-files = ["LICEN[CS]E*"]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/sergeyvuser/python-workout"
+Issues = "https://github.com/sergeyvuser/python-workout/issues"
+
+[build-system]
+requires = ["uv_build>=0.9.29,<0.10.0"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
     "ruff>=0.14.14",
 ]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = [
+    "-ra",
+    "-q",
+    "--import-mode=importlib",
+]
+testpaths = [
+    "tests",
+    "integration",
+]
+strict = true
