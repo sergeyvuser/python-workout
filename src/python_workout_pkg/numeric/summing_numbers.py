@@ -4,7 +4,7 @@ class Numbers:
     def __init__(self, *numbers):
         """
         Args:
-            *numbers: numbers to sum
+            *numbers: iterable of any type of numbers to sum (can be int or float)
         """
         self.numbers = numbers
 
@@ -21,6 +21,34 @@ class Numbers:
         for number in self.numbers:
             summ += number
         return summ
+
+    @staticmethod
+    def is_intable(item) -> bool:
+        """
+        Check if item is intable
+        Args:
+            item: object of any type
+        Returns:
+            True if item is intable, False otherwise
+        """
+        try:
+            int(item)
+            return True
+        except ValueError:
+            return False
+        except TypeError:
+            return False
+
+    def sum_integers(self) -> int:
+        """
+        Summing only objects which are either integers or can be converted to integers
+        Returns:
+            sum of only integers in numbers
+        """
+        if not self.numbers:
+            return 0
+
+        return sum(int(item) for item in self.numbers if self.is_intable(item))
 
     def mean(self) -> float | None:
         """

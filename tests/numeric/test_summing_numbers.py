@@ -37,6 +37,29 @@ testdata_mean = [
     ((0,), 0),
 ]
 
+testdata_integers = [
+    ((1, 2, "hello", 4, 5), 12),
+    ((1, 2, 3.0, 4, 5), 15),
+    ((1, 2, 3, 4.5, 5), 15),
+    ((1, 2, None, 4, 5), 12),
+    ([10, "hello", 30], 40),
+    ([10, "10", 30], 50),
+    ([10, (), 30], 40),
+    ([10, [], 30], 40),
+    (range(1, 101), 5050),
+    (("",), 0),
+    ((10,), 10),
+    (("10",), 10),
+    ((), 0),
+    ((0,), 0),
+    ({0}, 0),
+    ({}, 0),
+    ({"10"}, 10),
+    ({10}, 10),
+    ({"hello"}, 0),
+    ({None}, 0),
+]
+
 
 class TestNumbers:
     @pytest.mark.parametrize("numbers, start, result", testdata)
@@ -50,6 +73,10 @@ class TestNumbers:
     @pytest.mark.parametrize("numbers, result", testdata_mean)
     def test_mean(self, numbers, result):
         assert Numbers(*numbers).mean() == result
+
+    @pytest.mark.parametrize("numbers, result", testdata_integers)
+    def test_sum_integers(self, numbers, result):
+        assert Numbers(*numbers).sum_integers() == result
 
 
 testdata_words = [
