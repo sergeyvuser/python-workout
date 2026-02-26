@@ -1,41 +1,71 @@
-class Runs:
+from pydantic import BaseModel, computed_field
+from python_workout_pkg.utils.cli import CLI
+
+
+class Run(BaseModel):
     """
-    Calculates the average time of each run
+    Tracks 10 km run times and calculates average.
+
+    Attributes:
+        last_run_time: Time of the last run in minutes (None if no runs recorded).
+        number_of_runs: Total number of runs recorded.
+        total_time: Sum of all run times in minutes.
+        average_time: (Computed) Average run time.
     """
 
-    def __init__(
-        self, number_of_runs: int = 0, total_time: int = 0, average_time: float = 0
-    ):
+    last_run_time: float | None = None
+    number_of_runs: int = 0
+    total_time: float = 0
+
+    @computed_field
+    @property
+    def average_time(self) -> float:
+        """Calculate average run time."""
+        if self.number_of_runs == 0:
+            return 0.0
+        return self.total_time / self.number_of_runs
+
+    def input_str_handler(self, input_string: str) -> None:
         """
-        Initialises the Runs class
+        Process a single run time input.
+
         Args:
-            number_of_runs: the number of runs
-            total_time: the total time
-            average_time: the average time
+            input_string: The run time as a string.
+        Raises:
+            ValueError: If the input cannot be converted to a float.
         """
-        self.number_of_runs = number_of_runs
-        self.total_time = total_time
-        self.average_time = average_time
+        if input_string == "0":
+            print("Too fast dude! Try again!")
+            return
 
-    def run_timing(self):
-        while True:
-            try:
-                one_run = float(input("Enter 10 km run time: "))
-                if not one_run:
-                    break
-                self.number_of_runs += 1
-                self.total_time += one_run
-            except ValueError:
-                print("Hey! That's not a valid number!")
-            except TypeError:
-                print("Hey! That's not a valid number!")
         try:
-            self.average_time = self.total_time / self.number_of_runs
-            print(f"Average of {self.average_time}, over {self.number_of_runs} runs")
-        except ZeroDivisionError:
-            print("No one run was added!")
+            run_time = float(input_string)
+        except ValueError as e:
+            print("Hey! That's not a valid number!")
+            raise e
+
+        if run_time < 0:
+            print("Hey! You can run back in time?")
+            return
+
+        self.last_run_time = run_time
+        self.number_of_runs += 1
+        self.total_time += self.last_run_time
+
+    def print_results(self) -> None:
+        """Print session end message with the average run time and the number of runs."""
+        if self.number_of_runs == 0:
+            print("No runs recorded.")
+            return
+        print(f"Average of {self.average_time}, over {self.number_of_runs} runs")
 
 
 if __name__ == "__main__":
-    run = Runs()
-    run.run_timing()
+    run = Run()
+    session = CLI(
+        session_object=run,
+        session_object_input_prompt="Enter 10 km run time: ",
+        session_description="To add a run time, enter a number (positive float or int)\n",
+    )
+    session.run_input_session()
+    run.print_results()
