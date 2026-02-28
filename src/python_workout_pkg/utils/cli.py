@@ -20,7 +20,7 @@ class CLI(BaseModel):
         Run the interactive session.
         It handles input strings and calls the input_str_handler method of the session object.
         """
-        print("To end session, enter 'quit'")
+        print("Session started. To end session, enter 'quit'")
         if self.session_description:
             print(self.session_description)
 
