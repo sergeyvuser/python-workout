@@ -1,5 +1,7 @@
 import pytest
-from python_workout_pkg.numeric.float_numbers_transform import transform_float_numbers
+from python_workout_pkg.exercises.numeric.float_numbers_transform import (
+    transform_float_numbers,
+)
 
 testdata = [
     (0.0, 0, 0, None),

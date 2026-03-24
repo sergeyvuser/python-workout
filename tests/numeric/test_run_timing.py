@@ -1,6 +1,6 @@
 import pytest
-from python_workout_pkg.numeric.run_timing import Run
-from python_workout_pkg.utils.cli import CLI
+from python_workout_pkg.exercises.numeric import Run
+from python_workout_pkg.shared.cli import CLI
 from io import StringIO
 
 # Parameterized data: (input, number_of_runs, result)

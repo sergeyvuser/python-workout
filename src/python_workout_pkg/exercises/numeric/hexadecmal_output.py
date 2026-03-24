@@ -1,4 +1,4 @@
-from python_workout_pkg.utils.cli import CLI
+from python_workout_pkg.shared.cli import CLI
 from pydantic import BaseModel
 
 
