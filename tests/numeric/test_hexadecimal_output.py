@@ -1,5 +1,5 @@
 import pytest
-from python_workout_pkg.numeric.hexadecmal_output import Hexs
+from python_workout_pkg.exercises.numeric.hexadecmal_output import Hexs
 
 
 class TestHexs:
