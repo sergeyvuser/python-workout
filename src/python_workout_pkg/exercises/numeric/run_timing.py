@@ -1,5 +1,5 @@
 from pydantic import BaseModel, computed_field
-from python_workout_pkg.utils.cli import CLI
+from python_workout_pkg.shared.cli import CLI
 
 
 class Run(BaseModel):

@@ -1,5 +1,5 @@
 import pytest
-from python_workout_pkg.numeric.summing_numbers import Numbers, Words
+from python_workout_pkg.exercises.numeric.summing_numbers import Numbers, Words
 
 testdata = [
     ((1, 2, 3, 4, 5), None, 25),
